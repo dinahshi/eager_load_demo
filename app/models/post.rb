@@ -3,4 +3,8 @@ class Post < ApplicationRecord
 
   validates :title, :presence => true,
                     :length => { :minimum => 5 }
+
+  def cache_key
+    "#{id}:#{updated_at}"
+  end
 end
